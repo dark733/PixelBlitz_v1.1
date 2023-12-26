@@ -17,17 +17,17 @@
     <ImageView fitHeight="1010.0" fitWidth="1005.0" layoutX="-7.0" pickOnBounds="true">
         <Image url="@title_bg_rw.jpeg" />
     </ImageView>
-    <!--       <ImageView fx:id="ImageView" fitHeight="400.0" fitWidth="805.0" layoutX="-187.0" pickOnBounds="true" preserveRatio="true">-->
-    <!--                  <image>-->
-    <!--                      <Image url="@../../../../java/com/example/fxml_manual/AdobeStock_598708744_Preview.jpeg" />-->
-    <!--                  </image>-->
-    <!--              </ImageView>-->
-    <Text layoutX="20.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="v1.0" />
-    <MenuBar fx:id="menub" layoutX="1.0" layoutY="6.0" prefHeight="35.0" prefWidth="990.0">
+    <MenuBar fx:id="menub" layoutX="1.0" layoutY="37.0" prefHeight="52.0" prefWidth="1000.0">
         <padding>
             <Insets top="10.0" />
         </padding>
         <Menu mnemonicParsing="false" styleClass="mdb" text="About">
+         <MenuItem mnemonicParsing="false" onAction="#termsAndConditionsClicked" text="T&amp;C">
+            <accelerator>
+               <KeyCodeCombination alt="UP" code="T" control="UP" meta="UP" shift="DOWN" shortcut="UP" />
+            </accelerator>
+         </MenuItem>
+         <SeparatorMenuItem mnemonicParsing="false" />
             <MenuItem mnemonicParsing="false" onAction="#documentation_clicked" text="Documentation">
                 <accelerator>
                     <KeyCodeCombination alt="UP" code="D" control="UP" meta="UP" shift="DOWN" shortcut="UP" />
@@ -54,7 +54,10 @@
             <SeparatorMenuItem mnemonicParsing="false" />
         </Menu>
         <Menu mnemonicParsing="false" styleClass="mdb" text="Help">
-            <MenuItem mnemonicParsing="false" onAction="#faq_clicked" text="FAQs" />
+            <MenuItem mnemonicParsing="false" onAction="#faq_clicked" text="FAQs">
+            <accelerator>
+               <KeyCodeCombination alt="UP" code="F1" control="UP" meta="UP" shift="DOWN" shortcut="UP" />
+            </accelerator></MenuItem>
             <SeparatorMenuItem mnemonicParsing="false" />
             <SeparatorMenuItem mnemonicParsing="false" />
             <MenuItem fx:id="forceExit_id" mnemonicParsing="false" onAction="#force_exitClicked" text="Force Exit">
@@ -67,6 +70,11 @@
             <MenuItem mnemonicParsing="false" onAction="#exit_f" text="Exit Application" />
             <SeparatorMenuItem mnemonicParsing="false" />
             <MenuItem mnemonicParsing="false" onAction="#mute_audioClicked" text="Mute Audio" />
+         <MenuItem mnemonicParsing="false" onAction="#easter_egg_clicked" text="Just Don't" visible="false">
+            <accelerator>
+               <KeyCodeCombination alt="UP" code="E" control="DOWN" meta="UP" shift="DOWN" shortcut="UP" />
+            </accelerator>
+         </MenuItem>
         </Menu>
     </MenuBar>
     <Text fill="WHITE" layoutX="286.0" layoutY="222.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="5.0" text="Pixel Blitz" wrappingWidth="428.7279052734375">
@@ -74,14 +82,14 @@
             <Font name="Nexa Heavy" size="80.0" />
         </font>
     </Text>
-    <Button fx:id="pbutton" layoutX="254.0" layoutY="320.0" mnemonicParsing="false" onAction="#switch_to_game_select" prefHeight="98.0" prefWidth="477.0" text="Play">
+    <Button fx:id="pbutton" layoutX="356.0" layoutY="439.0" mnemonicParsing="false" onAction="#switch_to_game_select" prefHeight="52.0" prefWidth="280.0" text="Play">
         <font>
-        <Font size="30.0" />
+        <Font name="System Bold" size="30.0" />
         </font>
     </Button>
-    <Button fx:id="pexit" layoutX="254.0" layoutY="452.0" mnemonicParsing="false" onAction="#exit_f" prefHeight="102.0" prefWidth="480.0" text="Exit">
+    <Button fx:id="pexit" layoutX="361.0" layoutY="544.0" mnemonicParsing="false" onAction="#exit_f" prefHeight="39.0" prefWidth="271.0" text="Exit">
         <font>
-        <Font size="30.0" />
+        <Font name="System Bold" size="30.0" />
         </font>
     </Button>
     <Text fill="WHITE" layoutX="802.0" layoutY="216.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="5.0" text="v1.10" wrappingWidth="101.1520004272461">
@@ -94,5 +102,5 @@
           <Font name="Nexa Heavy" size="30.0" />
         </font>
     </Text>
-    <Text fx:id="text_area_shortcut" layoutX="20.0" layoutY="130.0" stroke="#fff6f6" strokeType="OUTSIDE" strokeWidth="3.0" text="Shift +D  =  Documents&#10;Shift +L = License&#10;Shift + R = References&#10;Shift + C = Credits&#10;Shift  + Control + E = Exit" />
+    <Text fx:id="text_area_shortcut" layoutX="20.0" layoutY="130.0" stroke="#fff6f6" strokeType="OUTSIDE" strokeWidth="3.0" text="Shift +D  =  Documents&#10;Shift +L = License&#10;Shift + R = References&#10;Shift + C = Credits&#10;Shift+T=Terms and Conditions&#10;Shift  + Control + E = Exit&#10;Shift + F1=FAQ" />
 </AnchorPane>

@@ -13,24 +13,24 @@
       <Image url="@game_select.jpeg" />
    </ImageView>
    <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select a Game" />
-   <Button layoutX="572.0" layoutY="37.0" mnemonicParsing="false" onAction="#exit_f" prefHeight="82.0" prefWidth="423.0" text="Exit">
+   <Button layoutX="702.0" layoutY="37.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#exit_f" prefHeight="49.0" prefWidth="181.0" text="Exit">
       <font>
-         <Font size="39.0" />
+         <Font name="System Bold" size="20.0" />
       </font>
    </Button>
-   <Button layoutX="50.0" layoutY="238.0" mnemonicParsing="false" onAction="#game_one_clicked" prefHeight="107.0" prefWidth="500.0" text="Platformer 2D">
+   <Button layoutX="148.0" layoutY="228.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#game_one_clicked" prefHeight="58.0" prefWidth="202.0" text="Platformer 2D">
       <font>
-         <Font size="32.0" />
+         <Font name="System Bold" size="20.0" />
       </font>
    </Button>
-   <Button layoutX="50.0" layoutY="420.0" mnemonicParsing="false" onAction="#game_two_clicked" prefHeight="100.0" prefWidth="502.0" text="Game Two">
+   <Button layoutX="148.0" layoutY="407.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#game_two_clicked" prefHeight="58.0" prefWidth="202.0" text="Game Two">
       <font>
-         <Font size="30.0" />
+         <Font name="System Bold" size="25.0" />
       </font>
    </Button>
-   <Button layoutX="46.0" layoutY="565.0" mnemonicParsing="false" onAction="#game_three_clicked" prefHeight="99.0" prefWidth="510.0" text="Game Three">
+   <Button layoutX="147.0" layoutY="595.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#game_three_clicked" prefHeight="58.0" prefWidth="202.0" text="Game Three">
       <font>
-         <Font size="29.0" />
+         <Font name="System Bold" size="25.0" />
       </font>
    </Button>
 </AnchorPane>
