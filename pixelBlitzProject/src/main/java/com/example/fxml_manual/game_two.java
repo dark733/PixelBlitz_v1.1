@@ -8,25 +8,14 @@ abstract class game_two_i{
 }
 
 class game_two extends game_two_i{
-    public final int MOVE =25;
-    public static final int SIZE =25;
-    public static final int XMAX =SIZE*12;
-    public static final int YMAX =SIZE*24;
-    private static int[][] MESH = new int[XMAX/SIZE][YMAX/SIZE];
+
     public static void game_two_event() {
-        Stage stage = new Stage();
-        System.out.println("Initialising game Two");
-        //Game Two Implemented here
-        if(stage!=null){
-            System.out.println("Stage is not null");
-            tetris_game(stage);
-        }
-        else{
-            System.out.println("Stage is Null(Stage is void)");
-        }
+        main_fn2();
+
 
     }
-    public static void tetris_game(Stage stage){
+    public static void main_fn2(){
+        //Main Function for Game 2(start from here)
 
     }
 }

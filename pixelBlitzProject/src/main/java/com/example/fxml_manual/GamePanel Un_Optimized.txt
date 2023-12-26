@@ -11,7 +11,7 @@ import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class GamePanelOne extends javax.swing.JPanel implements ActionListener {
+public class GamePanelOne_UnOptimized extends javax.swing.JPanel implements ActionListener {
     PlayerOne player;
     int cameraX;
     ArrayList<Wall>walls = new ArrayList<>();
@@ -22,7 +22,7 @@ public class GamePanelOne extends javax.swing.JPanel implements ActionListener {
     private Image backgroundImage;
     public Font buttonFont = new Font("Arial",Font.BOLD,30);
 
-    public GamePanelOne(){
+    public GamePanelOne_UnOptimized(){
         /*Exit Code Start*/
         addMouseListener(new MouseAdapter() {
             @Override
@@ -42,7 +42,7 @@ public class GamePanelOne extends javax.swing.JPanel implements ActionListener {
         restartRect = new Rectangle(550,25,50,50);
         homeRect=new Rectangle(625,25,50,50);
 
-;
+        ;
 
         //
         try {
@@ -74,12 +74,15 @@ public class GamePanelOne extends javax.swing.JPanel implements ActionListener {
 
                 player.set();
                 for (Wall wall:walls) wall.set(cameraX);
-
-                for(int i =0;i< walls.size();i++){
-                    if(walls.get(i).x<-800)walls.remove(i);
-                }
+                walls.removeIf(wall -> wall.x < -800); //new line for removal of walls
 
                 repaint();
+
+//                for(int i =0;i< walls.size();i++){ //old line for removal of walls
+//                    if(walls.get(i).x<-800)walls.remove(i);
+//                }
+
+                //repaint(); //old repaint method
 
             }
         },0,17);
@@ -105,42 +108,88 @@ public class GamePanelOne extends javax.swing.JPanel implements ActionListener {
         makeWalls(offset);
     }
     /*Generate Walls method start*/
-    public void makeWalls(int offset){
-        int s=50;
+    public void makeWalls(int offset) {
+        int s = 50;
         Random rand = new Random();
-        int index=rand.nextInt(4);
-        if(index == 0){
-            for(int i=0;i<14;i++)walls.add(new Wall(Color.PINK,offset+i*50,600,s,s));
-        }
-        else if(index == 1){
+        int index = rand.nextInt(8) + 2; // Generates a random number from 2 to 9
+        if(index==1){
             for(int i=0;i<5;i++)walls.add(new Wall(Color.WHITE,offset+i*50,600,s,s));
-            walls.add(new Wall(Color.WHITE,offset+500,600,s,s));
-            walls.add(new Wall(Color.WHITE,offset+550,600,s,s));
-            walls.add(new Wall(Color.WHITE,offset+600,600,s,s));
-            walls.add(new Wall(Color.WHITE,offset+650,600,s,s));
-            walls.add(new Wall(Color.WHITE,offset+700,600,s,s));
-            walls.add(new Wall(Color.WHITE,offset+750,600,s,s));
-
-        }
-        else if(index==2){
-            for(int i=0;i<14;i++)walls.add(new Wall(Color.GREEN,offset+i*50,600,s,s));
-            for(int i=0;i<12;i++)walls.add(new Wall(Color.GREEN,offset+50+i*50,550,s,s));
-            for(int i=0;i<10;i++)walls.add(new Wall(Color.GREEN,offset+100+i*50,500,s,s));
-            for(int i=0;i<10;i++)walls.add(new Wall(Color.GREEN,offset+150+i*50,450,s,s));
-            for(int i=0;i<10;i++)walls.add(new Wall(Color.GREEN,offset+200+i*50,400,s,s));
-
-
-        }
-        else {
-            for(int i=0;i<3;i++)walls.add(new Wall(Color.BLUE,offset+i*50,600,s,s));
-            for(int i=0;i<2;i++)walls.add(new Wall(Color.BLUE,offset+50+i*50,550,s,s));
-            walls.add(new Wall(Color.WHITE,offset+450,500,s,s));
-            walls.add(new Wall(Color.WHITE,offset+300,500,s,s));
-            walls.add(new Wall(Color.WHITE,offset+550,500,s,s));
-
+            walls.add(new Wall(getRandomColor(),offset+500,600,s,s));
+            walls.add(new Wall(getRandomColor(),offset+550,600,s,s));
+            walls.add(new Wall(getRandomColor(),offset+600,600,s,s));
+            walls.add(new Wall(getRandomColor(),offset+650,600,s,s));
+            walls.add(new Wall(getRandomColor(),offset+700,600,s,s));
+            walls.add(new Wall(getRandomColor(),offset+750,600,s,s));
         }
 
+        else if (index == 2) {
+            // Random wall pattern for index 2
+            for (int i = 0; i < 14; i++) {
+                walls.add(new Wall(getRandomColor(), offset + i * 50, 600, s, s));
+            }
+        } else if (index == 3) {
+            // Random wall pattern for index 3
+            int x = offset;
+            for (int i = 0; i < 10; i++) {
+                walls.add(new Wall(getRandomColor(), x, 600 - i * 50, s, s));
+                x += 50;
+            }
+        } else if (index == 4) {
+            // Random wall pattern for index 4
+            int y = 550;
+            for (int i = 0; i < 5; i++) {
+                walls.add(new Wall(getRandomColor(), offset + i * 100, y, s, s));
+                y -= 50;
+            }
+        } else if (index == 5) {
+            // Random wall pattern for index 5
+            int x = offset;
+            int y = 500;
+            for (int i = 0; i < 8; i++) {
+                walls.add(new Wall(getRandomColor(), x, y, s, s));
+                x += 50;
+                y -= 50;
+            }
+        } else if (index == 6) {
+            // Random wall pattern for index 6
+            for (int i = 0; i < 8; i++) {
+                walls.add(new Wall(getRandomColor(), offset + i * 100, 600, s, s));
+            }
+            walls.add(new Wall(getRandomColor(), offset + 400, 550, s, s));
+        } else if (index == 7) {
+            // Random wall pattern for index 7
+            int x = offset;
+            for (int i = 0; i < 10; i++) {
+                walls.add(new Wall(getRandomColor(), x, 600, s, s));
+                x += 50;
+            }
+        } else if (index == 8) {
+            // Random wall pattern for index 8
+            int x = offset;
+            for (int i = 0; i < 5; i++) {
+                walls.add(new Wall(getRandomColor(), x, 600, s, s));
+                walls.add(new Wall(getRandomColor(), x, 550, s, s));
+                x += 100;
+            }
+        } else if (index == 9) {
+            // Random wall pattern for index 9
+            for (int i = 0; i < 12; i++) {
+                walls.add(new Wall(getRandomColor(), offset + i * 50, 600, s, s));
+            }
+            walls.add(new Wall(getRandomColor(), offset + 550, 600, s, s));
+            walls.add(new Wall(getRandomColor(), offset + 550, 550, s, s));
+        } else if (index==10) {
+            for(int i=0;i<14;i++)walls.add(new Wall(getRandomColor(),offset+i*50,600,s,s));
+            for(int i=0;i<12;i++)walls.add(new Wall(getRandomColor(),offset+50+i*50,550,s,s));
+            for(int i=0;i<10;i++)walls.add(new Wall(getRandomColor(),offset+100+i*50,500,s,s));
+            for(int i=0;i<10;i++)walls.add(new Wall(getRandomColor(),offset+150+i*50,450,s,s));
+            for(int i=0;i<10;i++)walls.add(new Wall(getRandomColor(),offset+200+i*50,400,s,s));
+
+        }
+        // Add more else if blocks i_f needed for further indices
     }
+
+    /*Generate Walls method stop*/
     public void paint(Graphics g){
         super.paint(g);
 

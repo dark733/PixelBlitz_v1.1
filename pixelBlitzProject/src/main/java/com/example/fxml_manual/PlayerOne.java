@@ -44,12 +44,12 @@ public class PlayerOne {
             hitBox.y ++;
             for (Wall wall:panel.walls){
                 //Jump_further
-                if(wall.hitBox.intersects(hitBox)) y_speed=-11;
+                if(wall.hitBox.intersects(hitBox)) y_speed=-12;
             }
             hitBox.y --;
 //
         }
-        y_speed+=0.3;
+        y_speed+=0.5;
 
         //Horizontal Collisions
         hitBox.x +=x_speed;

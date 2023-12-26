@@ -4,6 +4,7 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuBar;
@@ -11,9 +12,15 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+//import javafx.scene.media.Media;
+//import javafx.scene.media.MediaPlayer;
+//import javafx.scene.media.MediaView;
 
 
-public class titleScreen_ControllerClass {
+public class titleScreen_ControllerClass implements Initializable {
     //PixelBlitz obj_main = new PixelBlitz();
     private final soundApi obj_sound = new soundApi();
     private final menu_bar menu_bar_obj = new menu_bar();
@@ -24,6 +31,7 @@ public class titleScreen_ControllerClass {
     public MenuItem forceExit_id;
     public Button pbutton;
     public Button pexit;
+    //private Med mediaView;
     game_three gameThree_obj = new game_three();
 
     @FXML
@@ -137,6 +145,21 @@ public class titleScreen_ControllerClass {
         System.out.println("mute_audio_clicked!");
         menu_bar_obj.mute_audio_event();
     }
+    public void termsAndConditionsClicked(){
+        obj_sound.play_game_selection_screen_sound();
+        System.out.println("Terms and Conditions Clicked");
+        menu_bar_obj.termsAndConditionsEvent(stage);
 
+    }
+    public void easter_egg_clicked(){
+        obj_sound.easterActivate_sound();
+        System.out.println("Easter egg activated");
+        menu_bar_obj.easter_egg_event(stage);
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    }
 }
 

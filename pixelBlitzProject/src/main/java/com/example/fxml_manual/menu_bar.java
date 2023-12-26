@@ -88,6 +88,28 @@ class menu_bar {
         }
 
     }
+    public void easter_egg_event(Stage stage){
+        try {
+            if (stage == null) {
+                System.out.println("Stage is null inside license_event() method");
+            } else {
+                System.out.println("Stage is not null inside license_event() method");
+            }
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("easterEgg.fxml"));
+            Parent gameSelectionRoot = fxmlLoader.load();
+
+            // Set the content of the stage's scene to the game selection root
+            //Node stage2;
+            Objects.requireNonNull(stage).getScene().setRoot(gameSelectionRoot);
+
+        } catch (IOException e) {
+            System.out.println("Something went wrong loading game_documentation.fxml: " + e.getMessage());
+
+        }
+
+    }
+
+
 
     public void faq_event(Stage stage) {
         try {
@@ -105,9 +127,9 @@ class menu_bar {
 
     }
 
-    public void switchBackToGameSelectionScreen(Stage stage) {
+    public void termsAndConditionsEvent(Stage stage) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Credits.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("t_and_c.fxml"));
             Parent gameSelectionRoot = fxmlLoader.load();
 
             // Set the content of the stage's scene to the game selection root
